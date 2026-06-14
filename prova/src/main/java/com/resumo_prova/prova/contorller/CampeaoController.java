@@ -26,22 +26,22 @@ public class CampeaoController {
         return service.listar();
     }
 
-    @GetMapping
+    @GetMapping("/{id}")
     public Optional<CampeaoModel>buscaPorId(@PathVariable UUID id){
         return service.buscaPorId(id);
     }
 
-    @GetMapping
+    @GetMapping("/nome/{nome}")
     public List<CampeaoModel>findByNome(@PathVariable String nome){
         return service.buscaPorNome(nome);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public void deletar(@PathVariable UUID id){
         service.deletar(id);
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     public CampeaoModel atualizar(@PathVariable UUID id, @RequestBody CampeaoModel campeaoModel){
         campeaoModel.setId(id);
         return service.save(campeaoModel);
